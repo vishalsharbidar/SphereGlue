@@ -1,10 +1,9 @@
 from copy import deepcopy
-from pathlib import Path
 from typing import List, Tuple
 
 import torch
 from torch import nn
-from torch_geometric.nn import ChebConv, knn_graph, GATConv
+from torch_geometric.nn import ChebConv, knn_graph
 
 def MLP(channels: List[int], do_bn: bool = True) -> nn.Module:
     """ Multi-layer perceptron """
