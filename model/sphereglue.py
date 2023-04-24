@@ -142,12 +142,11 @@ class SphericalChebConv(nn.Module):
         
 
     def forward(self, x, position, knn):
-        # ChebGlue
         edges = knn_graph(position.squeeze(0), k=knn, flow= 'target_to_source')
         x = self.conv1(x.transpose(2,1), edges)
         return x.transpose(2,1)
 
-class ChebGlue(nn.Module):
+class SphereGlue(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.config = config

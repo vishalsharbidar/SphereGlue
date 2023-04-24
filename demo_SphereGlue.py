@@ -3,7 +3,7 @@ import time
 import torch
 import argparse
 from torch.utils.data import DataLoader
-from model.chebglue import ChebGlue
+from model.sphereglue import SphereGlue
 from utils.demo_mydataset import MyDataset 
 import numpy
 
@@ -72,9 +72,8 @@ if __name__ == '__main__':
     
     data_loader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
 
-    ### testing
     # Loading the model
-    matching_test = ChebGlue(default_config).to(device)              
+    matching_test = SphereGlue(default_config).to(device)              
 
     model_path = 'saved_model/' + args.detector + '/autosaved.pt'
     ckpt_data = torch.load(model_path)
