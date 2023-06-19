@@ -173,6 +173,7 @@ class SphereGlue(nn.Module):
         """Run ChebGlue on a pair of keypoints and descriptors"""
         desc1, desc2 = data['h1'], data['h2']
         kpts1, kpts2 = data['unitCartesian1'], data['unitCartesian2']
+        scores1, scores2 = data['scores1'], data['scores2']
 
         if kpts1.shape[1] == 0 or kpts2.shape[1] == 0:  # no keypoints
             shape1, shape2 = kpts1.shape[:-1], kpts2.shape[:-1]
@@ -182,11 +183,15 @@ class SphereGlue(nn.Module):
                 'matching_scores0': kpts1.new_zeros(shape1),
                 'matching_scores1': kpts2.new_zeros(shape2),
             }
-
+        
+        if kpts1.shape[1] >= self.config['max_kpts'] or kpts2.shape[1] >= self.config['max_kpts']:  
+            kpts1, kpts2 = kpts1[:, :self.config['max_kpts'], :], kpts2[:, :self.config['max_kpts'], :]
+            desc1, desc2 = desc1[:, :self.config['max_kpts'], :], desc2[:, :self.config['max_kpts'], :]
+            scores1, scores2 = scores1[:, :self.config['max_kpts']], scores2[:, :self.config['max_kpts']]
 
         # Keypoint MLP encoder.
-        desc1 = self.kenc(desc1, kpts1, data['scores1']) 
-        desc2 = self.kenc(desc2, kpts2, data['scores2']) 
+        desc1 = self.kenc(desc1, kpts1, scores1) 
+        desc2 = self.kenc(desc2, kpts2, scores2) 
 
         # Chebyshev convolution
         desc1 = self.chebconv(desc1, kpts1, self.config['knn'])

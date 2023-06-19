@@ -42,6 +42,8 @@ if __name__ == '__main__':
         help=' Match threshold ', metavar='')
     parser.add_argument('--batch_size', type=int, default=1,
         help=' Batch size of training images', metavar='')
+    parser.add_argument('--max_kpts', type=int, default=20000,
+        help=' Maximum number of keypoints', metavar='')
     parser.add_argument('--knn', type=int, default=20,
         help=' K nearest neighbour for creating edges', metavar='')
     parser.add_argument('--sinkhorn_iterations', type=int, default=20,
@@ -65,6 +67,7 @@ if __name__ == '__main__':
                     'sinkhorn_iterations':args.sinkhorn_iterations,
                     'aggr': args.aggregation,
                     'knn': args.knn,
+                    'max_kpts': args.max_kpts
                 }
 
 
