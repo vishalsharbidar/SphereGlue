@@ -23,15 +23,15 @@ from utils.Utils import sphericalToCartesian
 from torch_geometric.nn import knn_graph
 import json
 import numpy
-
+import os
 
 class MyDataset(Dataset):
     def __init__(self, knn, input, folder, device):
         self.knn = knn
         self.device = device
         self.folder = folder 
-        self.gt_path = input
-        self.data = glob.glob(self.gt_path + "*")
+        self.gt_path = os.path.join(input, folder )
+        self.data = glob.glob(self.gt_path + "/*")
       
     def __len__(self):
         return len(self.data)
