@@ -30,11 +30,13 @@ if __name__ == '__main__':
         help=' Matches path', metavar='') 
     parser.add_argument('--images', type=str, default='images/', 
         help=' Image path', metavar='')
-    parser.add_argument('--save_npz', type=bool, default=True, 
+    parser.add_argument('--save_npz', type=bool, default=False, 
         help=' Saving npz', metavar='') 
     parser.add_argument('--draw_matches', type=bool, default=True, 
         help=' Draws matches', metavar='') 
-    parser.add_argument('--save_drawn_matches', type=bool, default=True, 
+    parser.add_argument('--display_matches', type=bool, default=True, 
+        help=' Display matches', metavar='') 
+    parser.add_argument('--save_drawn_matches', type=bool, default=False, 
         help=' Saving drawn matches', metavar='')                                                                           
     parser.add_argument('--match_threshold', type=float, default=0.2,
         help=' Match threshold ', metavar='')
@@ -66,7 +68,7 @@ if __name__ == '__main__':
                 }
 
 
-    if args.detector  == 'kp2d' or args.detector  == 'superpoint' or args.detector  == 'superpoint_tf':
+    if args.detector in ['kp2d', 'superpoint', 'superpoint_tf']:
         default_config['descriptor_dim'] = 256
         default_config['output_dim'] = 256*2
     if args.detector  == 'sift':
@@ -128,7 +130,7 @@ if __name__ == '__main__':
             exit()
 
     if args.save_npz is True:
-         print('Predictions are saved in -> ', args.output)
+         print('Predictions are saved in -> ', output_path)
     if args.draw_matches is True:
          print('Matches are saved in -> ', matches_path)
 

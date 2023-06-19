@@ -172,6 +172,6 @@ def draw_matches(img1_path, img2_path, data, out_path, arg, thickness=None):
     if arg.save_drawn_matches is True:
         plt.axis('off')
         plt.savefig(out_path, bbox_inches='tight')
-
-    plt.show()
+    if arg.display_matches is True:
+        plt.show()
     
