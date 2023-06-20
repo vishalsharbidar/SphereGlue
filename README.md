@@ -12,3 +12,16 @@ SphereGlue: A Graph Neural Network based feature matching for high-resolution sp
     OpenCV >= 4.5
     Matplotlib >= 3.5
     NumPy >= 1.21
+
+# Citation
+If you are using this code in your research, please cite our paper
+```
+@InProceedings{Gava_2023_CVPR,
+    author    = {Gava, Christiano and Mukunda, Vishal and Habtegebrial, Tewodros and Raue, Federico and Palacio, Sebastian and Dengel, Andreas},
+    title     = {SphereGlue: Learning Keypoint Matching on High Resolution Spherical Images},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month     = {June},
+    year      = {2023},
+    pages     = {6133-6143}
+}
+```
