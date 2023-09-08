@@ -13,6 +13,8 @@ SphereGlue: A Graph Neural Network based feature matching for high-resolution sp
     Matplotlib >= 3.5
     NumPy >= 1.21
 
+Or simply run ``` pip install -r requirements.txt ```
+
 # Citation
 If you are using this code in your research, please cite our paper
 ```
