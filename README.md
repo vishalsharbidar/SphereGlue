@@ -62,7 +62,7 @@ Or simply run ``` pip install -r requirements.txt ```
 Keypoint Coordinates, Keypoint Descriptors, and Keypoint Scores can be extracted from:
 SuperPoint: [Code](https://github.com/magicleap/SuperPointPretrainedNetwork)
 
-Keypoint Coordinates used in SphereGlue are in spherical coordinates. The keypoint coordinates obtained from SuperPoint will be in pixel coordinates. To convert this use 
+Keypoint Coordinates used in SphereGlue are in spherical coordinates. The keypoint coordinates obtained from SuperPoint will be in pixel coordinates. To convert this use: 
 ```
 def PixelToSpherical(pixel_coordinates:np.array, imgWidth:int, imgHeight:int):
     x,y = np.hsplit(pixel_coordinates,2)
