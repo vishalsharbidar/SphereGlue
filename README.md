@@ -57,6 +57,19 @@ SphereGlue: A Graph Neural Network based feature matching for high-resolution sp
 
 Or simply run ``` pip install -r requirements.txt ```
 
+# Structure of Dataset
+
+Each npz file consists of: 
+``` 
+{keypointCoords0: Keypoint Coordinates of image 0,
+keypointCoords1: Keypoint Coordinates of image 1, 
+keypointDescriptors0: Keypoint Descriptors of image 0,
+keypointDescriptors1: Keypoint Descriptors of image 1,
+keypointScores0: Keypoint Scores of image 0,
+keypointScores1: Keypoint Scores of image 1
+}
+```
+
 # Demo
 To run the demo on the data, use ``` python demo_SuperGlue.py --save_npz True ```
 
