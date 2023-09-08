@@ -8,7 +8,7 @@ SphereGlue: A Graph Neural Network based feature matching for high-resolution sp
 # Repo Structure
 ------------
 
-    ├── data
+    ├── data                     <- Keypoints information from two images. 
     │   ├── akaze                <- Data from akaze detector.
     │   ├── kp2d                 <- Data from kp2d detector.
     │   ├── sift                 <- Data from sift detector.
@@ -56,6 +56,14 @@ SphereGlue: A Graph Neural Network based feature matching for high-resolution sp
     NumPy >= 1.21
 
 Or simply run ``` pip install -r requirements.txt ```
+
+# Demo
+To run demo on the data, use ``` python demo_SuperGlue.py --save_npz True ```
+There are 4 flags:
+1. ``` --save_npz ```, when True, it will save the npz files in the folder output.
+2. ``` --draw_matches ```, when True, it will save the drawn matches in the folder matches.
+3. ``` --display_matches ```, when True, it will display the drawn matches.
+4. ``` --detector ```, can be used to change the detector. ``` python demo_SuperGlue.py --save_npz True --detector 'sift' ```. 
 
 # Citation
 If you are using this code in your research, please cite our paper
