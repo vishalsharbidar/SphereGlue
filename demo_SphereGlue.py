@@ -6,38 +6,23 @@ from torch.utils.data import DataLoader
 from model.sphereglue import SphereGlue
 from utils.demo_mydataset import MyDataset 
 import numpy
-from utils.Utils import draw_matches
+from utils.Utils import draw_match, split_name
 
 torch.cuda.empty_cache()
 torch.manual_seed(1)
-
-def split_name(name):
-    i1_i2, f = name.split('.')
-    i1, i2 = i1_i2.split('_') 
-    return i1, i2, i1_i2  
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='SuperGlue',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--input', type=str, default='data/', 
-        help=' Input path', metavar='')  
-    parser.add_argument('--detector', type=str, nargs='+', default= 'superpoint',  # ['superpoint', 'akaze', 'superpoint_tf', 'kp2d', 'sift'],
-        help=' Detector', metavar='')  
-    parser.add_argument('--output', type=str, default='output/', 
+        help=' Input path', metavar='')   
+    parser.add_argument('--output', type=str, default='output', 
         help=' Output path', metavar='')
     parser.add_argument('--matches', type=str, default='matches/', 
         help=' Matches path', metavar='') 
     parser.add_argument('--images', type=str, default='images/', 
-        help=' Image path', metavar='')
-    parser.add_argument('--save_npz', type=bool, default=False, 
-        help=' Saving npz', metavar='') 
-    parser.add_argument('--draw_matches', type=bool, default=True, 
-        help=' Draws matches', metavar='') 
-    parser.add_argument('--display_matches', type=bool, default=True, 
-        help=' Display matches', metavar='') 
-    parser.add_argument('--save_drawn_matches', type=bool, default=False, 
-        help=' Saving drawn matches', metavar='')                                                                           
+        help=' Image path', metavar='')                                                                         
     parser.add_argument('--match_threshold', type=float, default=0.2,
         help=' Match threshold ', metavar='')
     parser.add_argument('--batch_size', type=int, default=1,
@@ -52,6 +37,16 @@ if __name__ == '__main__':
         help=' Aggregation', metavar='') 
     parser.add_argument('--force_cpu', action='store_true',
         help='Force pytorch to run in CPU mode.')
+
+    parser.add_argument('--detector', type=str, default= 'superpoint',  # 'superpoint', 'akaze', 'superpoint_tf', 'kp2d', 'sift'
+        help=' Detector', metavar='') 
+    parser.add_argument('--save_npz', type=bool,
+        help=' Saving npz', metavar='') 
+    parser.add_argument('--draw_matches', type=bool, 
+        help=' Draws matches', metavar='') 
+    parser.add_argument('--display_matches', type=bool, 
+        help=' Display matches', metavar='') 
+
 
     args = parser.parse_args()
     print('\nargs',args)
@@ -115,6 +110,8 @@ if __name__ == '__main__':
                 # Output path
                 output_path = os.path.join(args.output, args.detector)
 
+                if not os.path.exists(args.output):
+                    os.mkdir(args.output)
                 if not os.path.exists(output_path):
                     os.mkdir(output_path)
 
@@ -124,13 +121,14 @@ if __name__ == '__main__':
             if args.draw_matches is True:
                 matches_path = os.path.join(args.matches, args.detector)
 
+                if not os.path.exists(args.matches):
+                    os.mkdir(args.matches)
                 if not os.path.exists(matches_path):
                     os.mkdir(matches_path)
 
                 i1, i2, i1_i2 = split_name(data['name'][0])
-                draw_matches(os.path.join(args.images, i1 + '.jpg'), os.path.join(args.images, i1 +'.jpg'), output_data, os.path.join(matches_path, i1_i2), args)
+                draw_match(os.path.join(args.images, i1 + '.jpg'), os.path.join(args.images, i1 +'.jpg'), output_data, os.path.join(matches_path, i1_i2), args)
 
-            exit()
 
     if args.save_npz is True:
          print('Predictions are saved in -> ', output_path)

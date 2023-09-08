@@ -118,7 +118,7 @@ def match_color(score):
     return color
 
 
-def draw_matches(img1_path, img2_path, data, out_path, arg, thickness=None):    
+def draw_match(img1_path, img2_path, data, out_path, arg, thickness=None):    
     # Function to draw Matches between two images
     '''
     inputs: img1: image 1, 
@@ -169,9 +169,13 @@ def draw_matches(img1_path, img2_path, data, out_path, arg, thickness=None):
 
     figure(figsize=(10, 10), dpi=80)
     plt.imshow(v_concat_img)
-    if arg.save_drawn_matches is True:
-        plt.axis('off')
-        plt.savefig(out_path, bbox_inches='tight')
+    plt.axis('off')
+    plt.savefig(out_path, bbox_inches='tight')
     if arg.display_matches is True:
         plt.show()
     
+
+def split_name(name):
+    i1_i2, f = name.split('.')
+    i1, i2 = i1_i2.split('_') 
+    return i1, i2, i1_i2  
