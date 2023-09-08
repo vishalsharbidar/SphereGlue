@@ -60,7 +60,12 @@ Or simply run ``` pip install -r requirements.txt ```
 # Structure of Dataset
 
 Keypoint Coordinates, Keypoint Descriptors, and Keypoint Scores can be extracted from:
-SuperPoint: [Code](https://github.com/magicleap/SuperPointPretrainedNetwork)
+1. SuperPoint: [Code](https://github.com/magicleap/SuperPointPretrainedNetwork)
+2. KP2D: [Code](https://github.com/TRI-ML/KP2D)
+3. Superpoint_tf: [Code](https://github.com/rpautrat/SuperPoint)
+4. Akaze: : Will be added soon
+5. Sift: : Will be added soon
+
 
 Keypoint Coordinates used in SphereGlue are in spherical coordinates. The keypoint coordinates obtained from SuperPoint will be in pixel coordinates. To convert this use: 
 ```
