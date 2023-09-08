@@ -18,6 +18,14 @@ def sphericalToCartesian(phi, theta, radius):
     return xyz
 
 
+# This function is used to convert keypoints from Pixel to Spherical coordinate
+def PixelToSpherical(pixel_coordinates:np.array, imgWidth:int, imgHeight:int):
+    x,y = np.hsplit(pixel_coordinates,2)
+    theta = (1. - (x + .5) / imgWidth) * 2*np.pi
+    phi = ((y + .5) * np.pi) / imgHeight
+    return np.hstack((phi, theta))
+
+
 def SphericalToUnitCartesian(phi, theta, radius):
     #print(phi, theta, radius)
     x = radius*torch.cos(theta)*torch.sin(phi) 
@@ -179,3 +187,5 @@ def split_name(name):
     i1_i2, f = name.split('.')
     i1, i2 = i1_i2.split('_') 
     return i1, i2, i1_i2  
+
+
