@@ -90,7 +90,7 @@ if __name__ == '__main__':
     # Loading the model
     matching_test = SphereGlue(default_config).to(device)              
 
-    model_path = 'saved_model/' + args.detector + '/autosaved.pt'
+    model_path = 'model_weights/' + args.detector + '/autosaved.pt'
     ckpt_data = torch.load(model_path)
     matching_test.load_state_dict(ckpt_data["MODEL_STATE_DICT"])
     matching_test.eval()
@@ -139,6 +139,5 @@ if __name__ == '__main__':
 
 
 #-------------------------------------------- End --------------------------------------------#
-
 
 
