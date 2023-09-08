@@ -58,7 +58,8 @@ SphereGlue: A Graph Neural Network based feature matching for high-resolution sp
 Or simply run ``` pip install -r requirements.txt ```
 
 # Demo
-To run demo on the data, use ``` python demo_SuperGlue.py --save_npz True ```
+To run the demo on the data, use ``` python demo_SuperGlue.py --save_npz True ```
+
 There are 4 flags:
 1. ``` --save_npz ```, when True, it will save the npz files in the folder output.
 2. ``` --draw_matches ```, when True, it will save the drawn matches in the folder matches.
