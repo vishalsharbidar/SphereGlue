@@ -116,7 +116,4 @@ class MyDataset(Dataset):
         processed_data['name'] = self.data[idx].split('/')[-1]
         return processed_data, y_true
         
-        #gt = json.load(open(self.data[idx]))
-        #processed_data, y_true = self.datapreprocessor(gt)
-        #processed_data['name'] = self.data[idx].split('/')[-1]
-        #return processed_data, y_true
+      
