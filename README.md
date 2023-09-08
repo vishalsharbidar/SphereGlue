@@ -59,7 +59,7 @@ Or simply run ``` pip install -r requirements.txt ```
 
 # Structure of Dataset
 
-Each npz file consists of: 
+Each npz file consists of Keypoint Coordinates, Keypoint Descriptors, and Keypoint Scores of two images. The structure of the dictionary can be seen below:
 ``` 
 {keypointCoords0: Keypoint Coordinates of image 0,
 keypointCoords1: Keypoint Coordinates of image 1, 
