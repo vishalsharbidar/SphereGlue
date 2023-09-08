@@ -77,7 +77,8 @@ There are 4 flags:
 1. ``` --save_npz ```, when True, it will save the npz files in the folder output.
 2. ``` --draw_matches ```, when True, it will save the drawn matches in the folder matches.
 3. ``` --display_matches ```, when True, it will display the drawn matches.
-4. ``` --detector ```, can be used to change the detector. ``` python demo_SuperGlue.py --save_npz True --detector 'sift' ```. 
+4. ``` --detector ```, can be used to change the detector.
+   ``` python demo_SuperGlue.py --save_npz True --detector 'sift' ```. 
 
 # Citation
 If you are using this code in your research, please cite our paper
