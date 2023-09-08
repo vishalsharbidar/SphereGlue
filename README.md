@@ -76,7 +76,7 @@ def PixelToSpherical(pixel_coordinates:np.array, imgWidth:int, imgHeight:int):
     return np.hstack((phi, theta))
 ```   
 
-Each npz file consists of Keypoint Coordinates, Keypoint Descriptors, and Keypoint Scores of two images. The structure of the dictionary can be seen below:
+Create a list of image pair and merge the Keypoint Coordinates, Keypoint Descriptors, and Keypoint Scores of two images into a npz file. The structure of the npz file (dictionary) can be seen below:
 ``` 
 {keypointCoords0: Keypoint Coordinates of image 0,
 keypointCoords1: Keypoint Coordinates of image 1, 
