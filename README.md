@@ -102,7 +102,7 @@ There are 4 flags:
    ``` python demo_SuperGlue.py --save_npz True --detector 'sift' ```. 
 
 # Citation
-If you are using this code in your research, please cite our paper
+If you are any ideas from the paper or code in your research, please cite our paper
 ```
 @InProceedings{Gava_2023_CVPR,
     author    = {Gava, Christiano and Mukunda, Vishal and Habtegebrial, Tewodros and Raue, Federico and Palacio, Sebastian and Dengel, Andreas},
