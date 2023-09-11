@@ -15,7 +15,7 @@ SphereGlue: A Graph Neural Network based feature matching for high-resolution sp
     │   ├── superpoint           <- Data from superpoint detector.
     |   └── superpoint_tf        <- Data from superpoint_tf detector.
     |
-    ├── images                   <- Spherical images for visualizing matches
+    ├── images                   <- Equirectangular images for visualizing matches
     |
     ├── matches                  <- Matches folder to save drawn matches (will be created automatically)
     │
