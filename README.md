@@ -4,9 +4,11 @@ SphereGlue: A Graph Neural Network based feature matching for high-resolution sp
 ## Abstract
 Traditionally, spherical keypoint matching has been performed using greedy algorithms, such as Nearest Neighbors (NN) search. NN based algorithms often lead to erroneous or insufficient matches as they fail to leverage global keypoint neighborhood information. Inspired by a recent learned perspective matching approach we introduce SphereGlue: a Graph Neural Network based feature matching for high-resolution spherical images. The proposed model naturally handles the severe distortions resulting from geometric transformations. Rigorous evaluations demonstrate the efficacy of SphereGlue in matching both learned and handcrafted keypoints, on synthetic and real high-resolution spherical images. Moreover, SphereGlue generalizes well to previously unseen real-world and synthetic scenes. Results on camera pose estimation show that SphereGlue can directly replace state-of-the-art matching algorithms, in downstream tasks.
 
+## Network Architecture
+![Architecture](https://github.com/vishalsharbidar/SphereGlue/assets/68814138/b9197d32-4470-41e8-b533-9278f5d6bd98)
+
 [Full paper PDF](https://openaccess.thecvf.com/content/CVPR2023W/IMW/papers/Gava_SphereGlue_Learning_Keypoint_Matching_on_High_Resolution_Spherical_Images_CVPRW_2023_paper.pdf)
 
-![Architecture](https://github.com/vishalsharbidar/SphereGlue/assets/68814138/b9197d32-4470-41e8-b533-9278f5d6bd98)
 
 # Repo Structure
 ------------
